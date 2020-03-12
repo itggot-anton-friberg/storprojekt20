@@ -1,0 +1,26 @@
+a href="" Admin
+h1 köp saker
+
+
+a href="/" Till start
+
+
+h2 Skapa ny vara
+form action="/shop/create_item" method="post"
+    input type="text" name="title" placeholder="Ny vara"
+    input type="text" name="pris" placeholder="pris"
+    input type="text" name="lager" placeholder="antal på lager"
+    input type="submit" value="Skapa"
+
+
+- if todo != nil
+    ul
+        - todo.each do |el|
+            li Vara: #{el["title"]} 
+            li Pris: #{el["pris"]}kr 
+            li Antal på lager: #{el["lager"]} st
+
+            form action="/shop/köp" method="post"
+            input type="submit" value="Köp"
+
+            h1  ---------------------------------------------
